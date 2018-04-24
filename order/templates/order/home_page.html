@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Benson Waimai”</title>
+</head>
+<body>
+	<h1>Prince Benson Fusion Restaurant</h1>
+	<p>Tasty Treats To Your Door! The most fresh food that we can serve</p>
+
+	<h2>Here are all our dishes!</h2>
+
+	<!-- Item 1 -->
+	<p>Steak: 18 dollor</p>
+	<img src="http://oxygenfit.com.au/wp-content/uploads/2012/01/steak.jpg">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Tomato Soup: 7 dollor</p>
+	<img src="https://www.healthyeating.org/RecipeImages/6cc59b16-2bf6-4e0d-9093-3318f61aac20.jpg">
+
+	<!-- Item 3 -->
+	<p>Pealla: 30 dollor</p>
+	<img src="https://blog.expedia.co.uk/wp-content/uploads/2013/12/paella-in-Barcelona.jpg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'order:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
